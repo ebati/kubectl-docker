@@ -1,0 +1,9 @@
+FROM alpine:3.8
+
+ENV KUBE_VERSION="v1.13.3"
+
+RUN apt apk add --update ca-certificates && \
+    rm /var/cache/apk/* && \
+    wget https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl && \
+    chmod +x /usr/local/bin/kubectl
+
